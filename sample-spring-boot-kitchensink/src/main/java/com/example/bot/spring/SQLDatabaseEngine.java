@@ -13,7 +13,7 @@ public class SQLDatabaseEngine extends DatabaseEngine {
 	String search(String text) throws Exception {		
 		String result = null;
 		Connection connection = getConnection();
-		PreparedStatement stmt = connection.prepareStatement("SELELCT * FROM lab3");
+		PreparedStatement stmt = connection.prepareStatement("SELELCT keyword, response FROM lab3");
 		ResultSet rs = stmt.executeQuery();	
 		
 		while (result == null && rs.next()) {
