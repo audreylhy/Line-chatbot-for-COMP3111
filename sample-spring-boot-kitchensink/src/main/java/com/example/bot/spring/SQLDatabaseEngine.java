@@ -10,9 +10,19 @@ import java.net.URI;
 @Slf4j
 public class SQLDatabaseEngine extends DatabaseEngine {
 	@Override
-	String search(String text) throws Exception {
-		//Write your code here
-		return null;
+	String search(String text) throws Exception {		
+		String result = null;
+		Connection connection = getConnection();
+		PreparedStatement stmt = connection.prepareStatement("SELELCT * FROM lab3");
+		ResultSet rs = stmt.executeQuery();	
+		
+		while (result == null && rs.next()) {
+			if (text.toLowerCase().equals(rs.getString(1).toLowerCase())) {
+				result = rs.getString(2);
+			}
+		}
+		
+		return result;
 	}
 	
 	
