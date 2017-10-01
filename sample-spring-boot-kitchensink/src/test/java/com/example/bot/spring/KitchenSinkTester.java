@@ -52,7 +52,7 @@ public class KitchenSinkTester {
 	@Autowired
 	private DatabaseEngine databaseEngine;
 	
-	@Test
+/*	@Test
 	public void testNotFound() throws Exception {
 		boolean thrown = false;
 		try {
@@ -63,7 +63,7 @@ public class KitchenSinkTester {
 		assertThat(thrown).isEqualTo(true);
 	}
 	
-/*	@Test
+	@Test
 	public void testFound() throws Exception {
 		boolean thrown = false;
 		String result = null;
