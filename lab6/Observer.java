@@ -23,7 +23,8 @@ public class Observer {
 		// once the notification has value >= this.id+7.
 		// Don't forget they will leave if it is their number too.
 		int value = Integer.parseInt(subject.getMessage());
-		if (value >= this.id + 7 || value == this.id)
-			subject.unregister(this);
+		int lastID = this.subject.getQueue().get(subject.getQueue().size()-1).getID();
+		if (lastID >= this.id + 7 || value == this.id)
+			unsubscribe();
 	}
 }

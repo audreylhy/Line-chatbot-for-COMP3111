@@ -48,7 +48,8 @@ public class Test {
 					System.out.println(MESSAGE_SELECT_TWO);
 					String order = br.readLine();
 					// TODO: act appropriately according to your design
-					starbucks.setMessage(order);
+					starbucks.setMessage(order);		
+					System.out.println(MESSAGE_SELECT_FOUR);
 					break;
 				case "3":
 					System.out.println(MESSAGE_SELECT_THREE);

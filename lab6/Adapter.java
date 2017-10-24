@@ -1,7 +1,3 @@
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 import java.util.HashMap;
 
 public class Adapter {
@@ -17,7 +13,7 @@ public class Adapter {
 	**/
 	public String getBeverage(String s){
 		// TODO: find the word with minimum edit distance
-		WagnerFischer WF = new WagnerFischer(" "," ");
+		WagnerFischer WF;
 		int size = BEVERAGES.length;
 		int distance[] = new int [size];
 
@@ -26,7 +22,7 @@ public class Adapter {
 			WF = new WagnerFischer(s, BEVERAGES[i]);
 			distance[i] = WF.getDistance();
 		}
-
+		
 		int minINDEX = 0;
 		int minDistance = distance[0];
 		for(int j = 0; j < size-1; j++)
@@ -36,7 +32,10 @@ public class Adapter {
 				minINDEX = j+1;
 			}
 		}
-			
-		return BEVERAGES[minINDEX];
+		
+		if(minDistance <= 3)
+			return BEVERAGES[minINDEX];
+		else
+			return null;
 	}
 }
