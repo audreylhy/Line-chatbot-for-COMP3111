@@ -1,5 +1,9 @@
 package skeleton;
 
+import java.util.Arrays;
+import java.util.Collections;
+import org.apache.commons.lang.ArrayUtils;
+
 import java.util.HashMap;
 
 public class Adapter {
@@ -15,5 +19,19 @@ public class Adapter {
 	**/
 	public String getBeverage(String s){
 		// TODO: find the word with minimum edit distance
+		WagnerFischer WF = new WagnerFischer(" "," ");
+		int size = BEVERAGES.length;
+		int distance[size];
+
+		for (int i = 0; i < size; i++)
+		{
+			WF = new WagnerFischer(s, BEVERAGES[i]);
+			distance[i] = WF.getDistance();
+		}
+
+		List b = Arrays.asList(ArrayUtils.toObject(distance));
+		int index = Collections.min(b);
+		return BEVERAGES[index];
+
 	}
 }
