@@ -1,5 +1,3 @@
-package skeleton;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +31,6 @@ public class Subject {
 		for(Observer obj : observersLocal){
 			obj.update();
 		}
-
 	}
 
 	public void setMessage(String msg) {

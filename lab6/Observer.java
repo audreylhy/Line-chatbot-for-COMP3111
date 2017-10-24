@@ -1,5 +1,3 @@
-package skeleton;
-
 public class Observer {
 	private int id;
 	private Subject subject;
@@ -26,6 +24,6 @@ public class Observer {
 		// Don't forget they will leave if it is their number too.
 		int value = Integer.parseInt(subject.getMessage());
 		if (value >= this.id + 7 || value == this.id)
-			this.remove();
+			subject.unregister(this);
 	}
 }

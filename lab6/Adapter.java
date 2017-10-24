@@ -1,8 +1,6 @@
-package skeleton;
-
 import java.util.Arrays;
 import java.util.Collections;
-import org.apache.commons.lang.ArrayUtils;
+import java.util.List;
 
 import java.util.HashMap;
 
@@ -21,7 +19,7 @@ public class Adapter {
 		// TODO: find the word with minimum edit distance
 		WagnerFischer WF = new WagnerFischer(" "," ");
 		int size = BEVERAGES.length;
-		int distance[size];
+		int distance[] = new int [size];
 
 		for (int i = 0; i < size; i++)
 		{
@@ -29,9 +27,16 @@ public class Adapter {
 			distance[i] = WF.getDistance();
 		}
 
-		List b = Arrays.asList(ArrayUtils.toObject(distance));
-		int index = Collections.min(b);
-		return BEVERAGES[index];
-
+		int minINDEX = 0;
+		int minDistance = distance[0];
+		for(int j = 0; j < size-1; j++)
+		{
+			if(distance[j+1] < minDistance){
+				minDistance = distance[j+1];
+				minINDEX = j+1;
+			}
+		}
+			
+		return BEVERAGES[minINDEX];
 	}
 }
